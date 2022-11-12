@@ -11,6 +11,11 @@ public class GetProperties {
      private String user;
      private String pwd;
 
+    private String emailSender;
+    private String emailReceiver;
+    private String subjectEmail;
+    private String bodyEmail;
+
      private GetProperties(){
          Properties properties = new Properties();
          String nameFile="todoly.properties";
@@ -22,6 +27,10 @@ public class GetProperties {
                  host=properties.getProperty("host");
                  user=properties.getProperty("user");
                  pwd=properties.getProperty("pwd");
+                 emailSender=properties.getProperty("emailSender");
+                 emailReceiver=properties.getProperty("emailReceiver");
+                 subjectEmail=properties.getProperty("subjectEmail");
+                 bodyEmail=properties.getProperty("bodyEmail");
 
              } catch (IOException e) {
                  throw new RuntimeException(e);
@@ -49,5 +58,20 @@ public class GetProperties {
 
     public String getPwd() {
         return pwd;
+    }
+    public String getEmailReceiver() {
+        return emailReceiver;
+    }
+
+    public String getEmailSender() {
+        return emailSender;
+    }
+
+    public String getBodyEmail() {
+        return bodyEmail;
+    }
+
+    public String getSubjectEmail() {
+        return subjectEmail;
     }
 }
