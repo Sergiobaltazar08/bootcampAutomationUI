@@ -60,10 +60,10 @@ public class BasicSeleniumTest2 {
         int actualResult=driver.findElements(By.xpath(" //td[text()='"+nameProject+"'] ")).size();
         Assertions.assertTrue(actualResult >= 1
                 ,"ERROR The project was not created");
-
+        // create task
         driver.findElement(By.id("NewItemContentInput")).sendKeys("Eynar");
         driver.findElement(By.id("NewItemAddButton")).click();
-
+        // create update
         driver.findElement(By.xpath("//div[@class=\"ItemContentDiv\" and text()='Eynar']")).click();
         driver.findElement(By.id("ItemEditTextbox")).clear();
         driver.findElement(By.id("ItemEditTextbox")).sendKeys("Update\n");
