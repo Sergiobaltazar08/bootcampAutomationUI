@@ -23,6 +23,11 @@ public class GetProperties {
     private String newNameProject;
 
 
+    //Practice 3
+    private String NameTask;
+    private String newNameTask;
+
+
      private GetProperties(){
          Properties properties = new Properties();
          String nameFile="todoly.properties";
@@ -42,6 +47,9 @@ public class GetProperties {
                  password=properties.getProperty("password");
                  nameProject=properties.getProperty("nameProject");
                  newNameProject=properties.getProperty("newNameProject");
+                 NameTask=properties.getProperty("NameTask");
+                 newNameTask=properties.getProperty("newNameTask");
+
 
              } catch (IOException e) {
                  throw new RuntimeException(e);
@@ -100,5 +108,13 @@ public class GetProperties {
 
     public String getNewNameProject() {
         return newNameProject;
+    }
+
+    public String getNameTask() {
+        return NameTask;
+    }
+
+    public String getNewNameTask() {
+        return newNameTask;
     }
 }
