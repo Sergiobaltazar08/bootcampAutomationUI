@@ -16,6 +16,13 @@ public class GetProperties {
     private String subjectEmail;
     private String bodyEmail;
 
+    // Practice 2
+    private String email;
+    private String password;
+    private String nameProject;
+    private String newNameProject;
+
+
      private GetProperties(){
          Properties properties = new Properties();
          String nameFile="todoly.properties";
@@ -31,6 +38,10 @@ public class GetProperties {
                  emailReceiver=properties.getProperty("emailReceiver");
                  subjectEmail=properties.getProperty("subjectEmail");
                  bodyEmail=properties.getProperty("bodyEmail");
+                 email=properties.getProperty("email");
+                 password=properties.getProperty("password");
+                 nameProject=properties.getProperty("nameProject");
+                 newNameProject=properties.getProperty("newNameProject");
 
              } catch (IOException e) {
                  throw new RuntimeException(e);
@@ -73,5 +84,21 @@ public class GetProperties {
 
     public String getSubjectEmail() {
         return subjectEmail;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getNameProject() {
+        return nameProject;
+    }
+
+    public String getNewNameProject() {
+        return newNameProject;
     }
 }

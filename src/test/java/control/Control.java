@@ -38,6 +38,10 @@ public class Control {
         this.find();
         return this.control.getText();
     }
+    public String getAttribute(String attribute){
+        this.find();
+        return this.control.getAttribute(attribute);
+    }
 
 
     public void waitControlIsNotInThePage(){
