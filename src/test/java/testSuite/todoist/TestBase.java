@@ -7,36 +7,32 @@ import page.todoist.MainPage;
 import page.todoist.ProjectSection;
 import page.todoist.TaskSection;
 import session.Session;
-import util.GetProperties;
+import util.GetPropertiesTodoist;
 
 public class TestBase {
 
     LoginSection loginSection = new LoginSection();
     MainPage mainPage = new MainPage();
     ProjectSection projectSection = new ProjectSection();
-
     TaskSection taskSection = new TaskSection();
 
-     // todo property file
-     String email= GetProperties.getInstance().getEmail();
-     String password = GetProperties.getInstance().getPassword();
-     String nameProject = GetProperties.getInstance().getNameProject();
-     String newNameProject = GetProperties.getInstance().getNewNameProject();
-     String NameTask = GetProperties.getInstance().getNameTask();
-     String newNameTask = GetProperties.getInstance().getNewNameTask();
+    // todo property file
+    String email = GetPropertiesTodoist.getInstance().getEmail();
+    String password = GetPropertiesTodoist.getInstance().getPassword();
+    String nameProject = GetPropertiesTodoist.getInstance().getNameProject();
+    String newNameProject = GetPropertiesTodoist.getInstance().getNewNameProject();
+    String NameTask = GetPropertiesTodoist.getInstance().getNameTask();
+    String newNameTask = GetPropertiesTodoist.getInstance().getNewNameTask();
 
+    @BeforeEach
+    public void openBrowser() {
+        // todo create property file
+        Session.getInstance().getBrowser().get(GetPropertiesTodoist.getInstance().getHost());
+    }
 
-
-
-     @BeforeEach
-     public void openBrowser(){
-          // todo create property file
-          Session.getInstance().getBrowser().get(GetProperties.getInstance().getHost());
-     }
-
-     @AfterEach
-     public void closeBrowser(){
-          Session.getInstance().closeSession();
-     }
+    @AfterEach
+    public void closeBrowser() {
+        Session.getInstance().closeSession();
+    }
 
 }
